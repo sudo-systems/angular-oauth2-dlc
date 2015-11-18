@@ -1,6 +1,6 @@
 /**
  * angular-oauth2-dlc - Angular OAuth2 DLC
- * @version v3.1.0
+ * @version v3.1.1
  * @link https://github.com/sudo-systems/angular-oauth2-dlc
  * @license MIT
  */
@@ -10,10 +10,14 @@
     } else if (typeof exports === "object") {
         module.exports = factory(require("angular"), require("query-string"));
     } else {
-        root.angularOAuth2 = factory(root.angular, root.queryString);
+        root.angularOAuth2Dlc = factory(root.angular, root.queryString);
     }
 })(this, function(angular, queryString) {
-    var ngModule = angular.module("angular-oauth2", [ "ngCookies" ]).config(oauthConfig).factory("oauthInterceptor", oauthInterceptor).provider("OAuth", OAuthProvider).provider("OAuthToken", OAuthTokenProvider);
+    var ngModule = angular.module("angular-oauth2-dlc", [ "ngCookies" ]).config(oauthConfig).factory("oauthInterceptor", oauthInterceptor).provider("OAuth", OAuthProvider).provider("OAuthToken", OAuthTokenProvider);
+    function oauthConfig($httpProvider) {
+        $httpProvider.interceptors.push("oauthInterceptor");
+    }
+    oauthConfig.$inject = [ "$httpProvider" ];
     function oauthInterceptor($q, $rootScope, OAuthToken) {
         return {
             request: function(config) {
@@ -263,9 +267,5 @@
         };
         this.$get.$inject = [ "$cookies" ];
     }
-    function oauthConfig($httpProvider) {
-        $httpProvider.interceptors.push("oauthInterceptor");
-    }
-    oauthConfig.$inject = [ "$httpProvider" ];
     return ngModule;
 });

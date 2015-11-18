@@ -10,7 +10,7 @@ import oauthConfig from './config/oauth-config';
 import oauthInterceptor from './interceptors/oauth-interceptor';
 import 'angular-cookies';
 
-var ngModule = angular.module('angular-oauth2', [
+var ngModule = angular.module('angular-oauth2-dlc', [
     'ngCookies'
   ])
   .config(oauthConfig)
@@ -20,7 +20,7 @@ var ngModule = angular.module('angular-oauth2', [
 ;
 
 /**
- * Export `angular-oauth2`.
+ * Export `angular-oauth2-dlc`.
  */
 
 export default ngModule;

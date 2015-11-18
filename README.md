@@ -1,6 +1,6 @@
-# angular-oauth2 [![Build Status](https://travis-ci.org/seegno/angular-oauth2.svg)](https://travis-ci.org/seegno/angular-oauth2)
+# angular-oauth2-dlc [![Build Status](https://travis-ci.org/seegno/angular-oauth2.svg)](https://travis-ci.org/seegno/angular-oauth2)
 
-AngularJS OAuth2 authentication module written in ES6.
+AngularJS OAuth2 DLC authentication module written in ES6.
 
 ---
 
@@ -8,13 +8,13 @@ AngularJS OAuth2 authentication module written in ES6.
 
 Choose your preferred method:
 
-* Bower: `bower install angular-oauth2`
-* NPM: `npm install --save angular-oauth2`
-* Download: [angular-oauth2](https://raw.github.com/seegno/angular-oauth2/master/dist/angular-oauth2.min.js)
+* Bower: `bower install angular-oauth2-dlc`
+* NPM: `npm install --save angular-oauth2-dlc`
+* Download: [angular-oauth2-dlc](https://github.com/sudo-systems/angular-oauth2-dlc/raw/master/dist/angular-oauth2-dlc.min.js)
 
 ## Usage
 
-###### 1. Download `angular-oauth2` dependencies.
+###### 1. Download `angular-oauth2-dlc` dependencies.
 
 * [angular](https://github.com/angular/angular.js)
 * [angular-cookies](https://github.com/angular/bower-angular-cookies)
@@ -22,19 +22,19 @@ Choose your preferred method:
 
 If you're using `bower` they will be automatically downloaded upon installing this library.
 
-###### 2. Include `angular-oauth2` and dependencies.
+###### 2. Include `angular-oauth2-dlc` and dependencies.
 
 ```html
 <script src="<VENDOR_FOLDER>/angular/angular.min.js"></script>
 <script src="<VENDOR_FOLDER>/angular-cookies/angular-cookies.min.js"></script>
 <script src="<VENDOR_FOLDER>/query-string/query-string.min.js"></script>
-<script src="<VENDOR_FOLDER>/angular-oauth2/dist/angular-oauth2.min.js"></script>
+<script src="<VENDOR_FOLDER>/angular-oauth2-dlc/dist/angular-oauth2-dlc.min.js"></script>
 ```
 
 ###### 3. Configure `OAuth` (required) and `OAuthToken` (optional):
 
 ```js
-angular.module('myApp', ['angular-oauth2'])
+angular.module('myApp', ['angular-oauth2-dlc'])
   .config(['OAuthProvider', function(OAuthProvider) {
     OAuthProvider.configure({
       baseUrl: 'https://api.website.com',
@@ -47,7 +47,7 @@ angular.module('myApp', ['angular-oauth2'])
 ###### 4. Catch `OAuth` errors and do something with them (optional):
 
 ```js
-angular.module('myApp', ['angular-oauth2'])
+angular.module('myApp', ['angular-oauth2-dlc'])
   .run(['$rootScope', '$window', 'OAuth', function($rootScope, $window, OAuth) {
     $rootScope.$on('oauth:error', function(event, rejection) {
       // Ignore `invalid_grant` error - should be catched on `LoginController`.
@@ -163,25 +163,25 @@ OAuthTokenProvider.configure({
 #### OAuthToken
 
 If you want to manage the `token` yourself you can use `OAuthToken` service.
-Please check the [OAuthToken](https://github.com/seegno/angular-oauth2/blob/master/src/providers/oauth-token-provider.js#L45) source code to see all the available methods.
+Please check the [OAuthToken](https://raw.githubusercontent.com/sudo-systems/angular-oauth2-dlc/master/src/providers/oauth-token-provider.js#L45) source code to see all the available methods.
 
 ## Contributing & Development
 
 #### Contribute
 
-Found a bug or want to suggest something? Take a look first on the current and closed [issues](https://github.com/seegno/angular-oauth2/issues). If it is something new, please [submit an issue](https://github.com/seegno/angular-oauth2/issues/new).
+Found a bug or want to suggest something? Take a look first on the current and closed [issues](https://github.com/sudo-systems/angular-oauth2-dlc/issues). If it is something new, please [submit an issue](https://github.com/sudo-systems/angular-oauth2-dlc/issues/new).
 
 #### Develop
 
 It will be awesome if you can help us evolve `angular-oauth2`. Want to help?
 
-1. [Fork it](https://github.com/seegno/angular-oauth2).
+1. [Fork it](https://github.com/sudo-systems/angular-oauth2-dlc).
 2. `npm install`.
 3. `bower install`
 4. Do your magic.
 5. Run the tests: `gulp test`.
 6. Build: `gulp build`
-7. Create a [Pull Request](https://github.com/seegno/angular-oauth2/compare).
+7. Create a [Pull Request](https://github.com/sudo-systems/angular-oauth2-dlc/compare).
 
 *The source files are written in ES6.*
 

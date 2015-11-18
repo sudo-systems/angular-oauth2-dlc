@@ -20,12 +20,12 @@ var wrapUmd = require('gulp-wrap-umd');
  */
 
 var config = {
-  name: 'angular-oauth2.js',
-  entry: './src/angular-oauth2.js',
+  name: 'angular-oauth2-dlc.js',
+  entry: './src/angular-oauth2-dlc.js',
   src: ['./src/*.js', './src/**/*.js'],
   dest: './dist',
   umd: {
-    namespace: 'angularOAuth2',
+    namespace: 'angularOAuth2Dlc',
     exports: 'ngModule',
     deps: [
       'angular',
