@@ -1,8 +1,8 @@
 {
   "name": "angular-oauth2-dlc",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "AngularJS OAuth2 DLC",
-  "main": "./dist/angular-oauth2.js",
+  "main": "./dist/angular-oauth2-dlc.js",
   "authors": [
     "Seegno <projects@seegno.com>",
     "Bram van Oploo <bram@sudo-systems.com>"
