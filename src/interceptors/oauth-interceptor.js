@@ -5,15 +5,26 @@
  * @ngInject
  */
 
+import angular from 'angular';
+import queryString from 'query-string';
+
 function oauthInterceptor($q, $rootScope, OAuthToken) {
   return {
     request: function(config) {
-      // Inject `Authorization` header.
-      if (OAuthToken.getAuthorizationHeader()) {
+      // don't add the authorization header when the client is requesting a new token or refreshing one.
+      if(angular.isDefined(config.data)) {
+        var data = queryString.parse(config.data);
+
+        if (angular.isDefined(data.grant_type) && (data.grant_type === 'password' || data.grant_type === 'refresh_token')) {
+          return config;
+        }
+      }
+      
+      if(OAuthToken.getAuthorizationHeader()) {
         config.headers = config.headers || {};
         config.headers.Authorization = OAuthToken.getAuthorizationHeader();
       }
-
+      
       return config;
     },
     responseError: function(rejection) {

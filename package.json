@@ -1,11 +1,11 @@
 {
-  "name": "angular-oauth2",
+  "name": "angular-oauth2-dlc",
   "version": "3.1.0",
-  "description": "Angular OAuth2",
+  "description": "Angular OAuth2 DLC",
   "main": "./dist/angular-oauth2.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/seegno/angular-oauth2.git"
+    "url": "https://github.com/sudo-systems/angular-oauth2-dlc"
   },
   "keywords": [
     "AngularJS",
@@ -18,9 +18,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/seegno/angular-oauth2/issues"
+    "url": "https://github.com/sudo-systems/angular-oauth2-dlc/issues"
   },
-  "homepage": "https://github.com/seegno/angular-oauth2",
+  "homepage": "https://github.com/sudo-systems/angular-oauth2-dlc",
   "devDependencies": {
     "6to5ify": "^3.1.2",
     "angular-mocks": "^1.3.9",
@@ -55,7 +55,7 @@
     "query-string": "./bower_components/query-string/query-string.js"
   },
   "scripts": {
-    "changelog": "./node_modules/.bin/github-changes -o seegno -r angular-oauth2 -a --only-pulls --use-commit-body --title 'Changelog' --date-format '/ YYYY-MM-DD'",
+    "changelog": "./node_modules/.bin/github-changes -o sudo-systems -r angular-oauth2-dlc -a --only-pulls --use-commit-body --title 'Changelog' --date-format '/ YYYY-MM-DD'",
     "test": "./node_modules/.bin/gulp test --browsers Firefox"
   },
   "browserify-shim": {
