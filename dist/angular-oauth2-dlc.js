@@ -101,15 +101,30 @@
                     },
                     getAccessToken: {
                         value: function getAccessToken(user, options) {
-                            if (!user || !user.username || !user.password) {
-                                throw new Error("`user` must be an object with `username` and `password` properties.");
+                            if(angular.isUndefined(user) || !angular.isObject(user)) {
+                              throw new Error("`user` must be an object with `username` and `password` properties, or with a `loginToken` property.");
                             }
-                            var data = {
+                          
+                            if(angular.isDefined(user.loginToken)) {
+                              var data = {
                                 client_id: config.clientId,
-                                grant_type: (angular.isDefined(user.grantType))? user.grantType: "password",
-                                username: user.username,
-                                password: user.password
-                            };
+                                grant_type: "authorization_code",
+                                code: user.loginToken
+                              };
+                            }
+                            else {
+                              if (!user.username || !user.password) {
+                                throw new Error("`user` must be an object with `username` and `password` properties.");
+                              }
+                            
+                              var data = {
+                                  client_id: config.clientId,
+                                  grant_type: "password",
+                                  username: user.username,
+                                  password: user.password,
+                              };
+                            }  
+                            
                             if (null !== config.clientSecret) {
                                 data.client_secret = config.clientSecret;
                             }
