@@ -106,7 +106,7 @@
                             }
                             var data = {
                                 client_id: config.clientId,
-                                grant_type: "password",
+                                grant_type: (angular.isDefined(user.grantType))? user.grantType: "password",
                                 username: user.username,
                                 password: user.password
                             };
